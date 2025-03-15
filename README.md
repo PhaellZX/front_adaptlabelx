@@ -28,21 +28,31 @@ Antes de começar, certifique-se de ter instalado:
 
 1. Clone o Repositório
 
-### `git clone https://github.com/seu-usuario/yolov8-detection-frontend.git cd yolov8-detection-frontend`
+```bash 
+git clone https://github.com/seu-usuario/yolov8-detection-frontend.git
+cd yolov8-detection-frontend
+```
 
 2. Configuração do Backend (FastAPI)
 
 Navegue até a pasta do backend:
 
-### `cd backend`
+```bash 
+cd backend
+```
 
 Crie um ambiente virtual e ative-o:
 
-### `python -m venv venv source venv/bin/activate  # No Windows, use `venv\Scripts\activate``
+```bash 
+python -m venv venv
+source venv/bin/activate  # No Windows, use `venv\Scripts\activate
+```
 
 Execute o servidor FastAPI:
 
-### `uvicorn main:app --reload`
+```bash 
+uvicorn main:app --reload
+```
 
 O backend estará disponível em http://localhost:8000.
 
@@ -50,15 +60,21 @@ O backend estará disponível em http://localhost:8000.
 
 Navegue até a pasta do frontend:
 
-### `cd ../frontend`
+```bash 
+cd ../frontend
+```
 
 Instale as dependências:
 
-### `npm install`
+```bash 
+npm install
+```
 
 Execute o servidor de desenvolvimento:
 
-### `npm start`
+```bash 
+npm start
+```
 
 O frontend estará disponível em http://localhost:3000.
 
