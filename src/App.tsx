@@ -10,6 +10,9 @@ const App: React.FC = () => {
   const [selectedClasses, setSelectedClasses] = useState<string[]>([]);
   const [files, setFiles] = useState<FileList | null>(null);
   const [isLoading, setIsLoading] = useState(false); // Estado para controlar o spinner
+  // No topo do componente
+  const [imagePath, setImagePath] = useState<string>(''); // Novo estado para o caminho
+  const [annotationFormat, setAnnotationFormat] = useState<string>("label_studio");
 
   // Referência para o input de arquivos
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -42,7 +45,13 @@ const App: React.FC = () => {
     const formData = new FormData();
     Array.from(files).forEach(file => formData.append('files', file));
     selectedClasses.forEach(cls => formData.append('classes', cls));
+    formData.append("annotation_format", annotationFormat);
 
+
+    if (imagePath.trim() !== '') {
+      formData.append('base_path', imagePath);
+    }
+    
     try {
       const response = await fetch('http://localhost:8000/upload', {
         method: 'POST',
@@ -94,7 +103,8 @@ const App: React.FC = () => {
     <div className="background-container">
       <div className="container">
         <img src={logo} width="100" alt="Logo" />
-        <h1>YOLOv8 Object Detection API</h1>
+        <h1>AdaptLabelX</h1>
+        <h2>Object Detection API</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="files"><strong>Envie seus Datasets e Selecione as classes</strong></label><br />
           <input
@@ -131,6 +141,40 @@ const App: React.FC = () => {
               </div>
             </>
           )}
+
+          <div className="form-group mt-3">
+            <label htmlFor="imagePath"><strong>Ou informe o caminho das imagens (servidor)</strong></label>
+            <input
+              type="text"
+              id="imagePath"
+              className="form-control"
+              placeholder="Ex: /home/user/images/"
+              value={imagePath}
+              onChange={(e) => setImagePath(e.target.value)}
+            />
+          </div>
+
+          <div className="format-selector">
+          <p><strong>Formato das Anotações</strong></p>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+            {["label_studio", "labelme"].map(format => (
+              <div key={format}>
+                <input
+                  type="radio"
+                  className="btn-check"
+                  name="annotation_format"
+                  id={format}
+                  value={format}
+                  onChange={(e) => setAnnotationFormat(e.target.value)}
+                  checked={annotationFormat === format}
+                />
+                <label className={`btn btn-outline-${annotationFormat === format ? "success" : "secondary"}`} htmlFor={format}>
+                  {format === "label_studio" ? "Label Studio" : "LabelMe"}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
 
           <button type="submit" className="btn btn-primary" disabled={isLoading}>
             {isLoading ? (
