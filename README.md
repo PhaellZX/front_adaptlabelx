@@ -1,4 +1,4 @@
-# AdaptLabelX Object Detection Frontend
+# Prototype Object Detection Frontend
 
 Este projeto é uma aplicação web que utiliza o modelo YOLOv8 para detecção de objetos em imagens. O frontend é construído com React e TypeScript, enquanto o backend é desenvolvido com FastAPI. A aplicação permite que os usuários enviem imagens, selecionem classes de objetos para detecção e visualizem as imagens anotadas.
 
