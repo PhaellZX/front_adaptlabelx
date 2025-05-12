@@ -1,117 +1,117 @@
 # Prototype Object Detection Frontend
 
-Este projeto é uma aplicação web que utiliza o modelo YOLOv8 para detecção de objetos em imagens. O frontend é construído com React e TypeScript, enquanto o backend é desenvolvido com FastAPI. A aplicação permite que os usuários enviem imagens, selecionem classes de objetos para detecção e visualizem as imagens anotadas.
+This project is a web application that uses the YOLOv8 model for object detection in images. The frontend is built with React and TypeScript, while the backend is developed with FastAPI. The application allows users to upload images, select object classes for detection, and view annotated images.
 
-## Funcionalidades
+## Features
 
-- Upload de Imagens: Envie múltiplas imagens para detecção de objetos.
+- **Image Upload**: Upload multiple images for object detection.
 
-- Seleção de Classes: Escolha as classes de objetos que deseja detectar.
+- **Class Selection**: Choose which object classes you want to detect.
 
-- Visualização de Imagens Anotadas: Veja as imagens com as detecções destacadas.
+- **Annotated Image Preview**: View images with highlighted detections.
 
-- Exportação de Anotações: Exporte as anotações em formato JSON (separado ou consolidado).
+- **Annotation Export**: Export annotations in JSON format (separate or consolidated).
 
-- Limpeza de Cache: Limpe o cache de imagens e anotações.
+- **Cache Cleanup**: Clear cached images and annotations.
 
-## Pré-requisitos
+## Prerequisites
 
-Antes de começar, certifique-se de ter instalado:
+Before starting, make sure you have installed:
 
-- Node.js (para o frontend)
+- Node.js (for the frontend)
 
-- Python (para o backend)
+- Python (for the backend)
 
-- Git (para clonar o repositório)
+- Git (to clone the repository)
 
-## Como Executar o Projeto
+## How to Run the Project
 
-1. Clone o Repositório
+### 1. Clone the Repository
 
 ```bash 
-git clone https://github.com/seu-usuario/yolov8-detection-frontend.git
+git clone https://github.com/your-username/yolov8-detection-frontend.git
 cd yolov8-detection-frontend
 ```
 
-2. Configuração do Backend (FastAPI)
+### 2. Backend Setup (FastAPI)
 
-Navegue até a pasta do backend:
+Navigate to the backend folder:
 
 ```bash 
 cd backend
 ```
 
-Crie um ambiente virtual e ative-o:
+Create and activate a virtual environment:
 
 ```bash 
 python -m venv venv
-source venv/bin/activate  # No Windows, use `venv\Scripts\activate
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 ```
 
-Execute o servidor FastAPI:
+Run the FastAPI server:
 
 ```bash 
 uvicorn main:app --reload
 ```
 
-O backend estará disponível em http://localhost:8000.
+The backend will be available at http://localhost:8000.
 
-3. Configuração do Frontend (React)
+### 3. Frontend Setup (React)
 
-Navegue até a pasta do frontend:
+Navigate to the frontend folder:
 
 ```bash 
 cd ../frontend
 ```
 
-Instale as dependências:
+Install dependencies:
 
 ```bash 
 npm install
 ```
 
-Execute o servidor de desenvolvimento:
+Run the development server:
 
 ```bash 
 npm start
 ```
 
-O frontend estará disponível em http://localhost:3000.
+The frontend will be available at http://localhost:3000.
 
-4. Acesse a Aplicação
+### 4. Access the Application
 
-Abra o navegador e acesse http://localhost:3000 para usar a aplicação.
+Open your browser and go to http://localhost:3000 to use the application.
 
-## Estrutura do Projeto
+## Project Structure
 
-- backend/: Contém o código do backend em FastAPI.
- - main.py: Ponto de entrada do backend.
- - requirements.txt: Lista de dependências do Python.
-- frontend/: Contém o código do frontend em React e TypeScript.
- - src/: Código-fonte do frontend.
-  - App.tsx: Componente principal da aplicação.
-  - App.css: Estilos globais.
- - public/: Arquivos estáticos (imagens, ícones, etc.).
+- `backend/`: Contains the FastAPI backend code.  
+  - `main.py`: Entry point of the backend.  
+  - `requirements.txt`: Python dependencies list.  
 
-## Dependências
+- `frontend/`: Contains the React + TypeScript frontend code.  
+  - `src/`: Frontend source code.  
+    - `App.tsx`: Main application component.  
+    - `App.css`: Global styles.  
+  - `public/`: Static files (images, icons, etc.).
+
+## Dependencies
 
 ### Backend (FastAPI)
 
-- fastapi: Framework para construção da API.
+- **fastapi**: Framework for building the API.
 
-- uvicorn: Servidor ASGI para executar o FastAPI.
+- **uvicorn**: ASGI server to run FastAPI.
 
-- ultralytics: Biblioteca para usar o modelo YOLOv8.
+- **ultralytics**: Library for using the YOLOv8 model.
 
-- opencv-python: Para processamento de imagens.
+- **opencv-python**: For image processing.
 
 ### Frontend (React)
 
-- react: Biblioteca para construção de interfaces.
+- **react**: Library for building interfaces.
 
-- react-bootstrap: Componentes React baseados no Bootstrap.
+- **react-bootstrap**: Bootstrap-based components for React.
 
-- axios: Para fazer requisições HTTP ao backend.
+- **axios**: For making HTTP requests to the backend.
 
-- react-zoom-pan-pinch: Para funcionalidade de zoom nas imagens.
-
+- **react-zoom-pan-pinch**: For zoom and pan functionality on images.
