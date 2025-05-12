@@ -103,7 +103,7 @@ const App: React.FC = () => {
     <div className="background-container">
       <div className="container">
         <img src={logo} width="100" alt="Logo" />
-        <h1>AdaptLabelX</h1>
+        <h1>Prototype</h1>
         <h2>Object Detection API</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="files"><strong>Envie seus Datasets e Selecione as classes</strong></label><br />
